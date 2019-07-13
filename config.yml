@@ -331,9 +331,9 @@ tasks:
       path: "/{? folder.root ?}{? folder.downseries ?}"
       mask: '*.torrent'
     accept_all: yes
-    exec:
-      on_output:
-        for_accepted: rm -f "{{location}}"
+#    exec:
+#      on_output:
+#        for_accepted: rm -f "{{location}}"
 
 
 ##### Download episodes from RSS feeds#
@@ -460,9 +460,9 @@ tasks:
       path: "/{? folder.root ?}{? folder.downmovies ?}"
       mask: '*.torrent'
     accept_all: yes
-    exec:
-      on_output:
-        for_accepted: rm -f "{{location}}"
+#    exec:
+#      on_output:
+#        for_accepted: rm -f "{{location}}"
     list_remove:
       - movie_list: trakt-movies
       - trakt_list:
@@ -866,9 +866,9 @@ tasks:
       - series_season > 1:
           set:
             to_remove: "S{{(series_season-1)|pad(2)}}"
-    exec:
-      on_output:
-        for_accepted: find "/{? folder.root ?}{? folder.series ?}{{tvdb_series_name|escape|replace('&#39;', '')}}" -type d -name "{{to_remove}}" -exec rm -r '{}' \;
+#    exec:
+#      on_output:
+#        for_accepted: find "/{? folder.root ?}{? folder.series ?}{{tvdb_series_name|escape|replace('&#39;', '')}}" -type d -name "{{to_remove}}" -exec rm -r '{}' \;
     kodi_library:
       action: clean
       category: video

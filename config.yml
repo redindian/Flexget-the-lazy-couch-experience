@@ -109,35 +109,35 @@ templates:
       path: "/{? folder.root ?}"
       space: 5000
     # Requires log_filter plugin
-    log_filter:
-      task:
-        - marked seen
-        - because quality already downloaded
-        - because episode has already been downloaded
-        - Task does not have any
-      move:
-        - left because it exceeds safety value
-        - does not exists (anymore)
-      urlrewriter:
-        - URL rewritten to
-      enzyme.mkv:
-        - Reading
-        - Processing
-      enzyme.parsers.ebml.core:
-        - ignored
-        - Maximum level
-      subliminal.video:
-        - Scanning video
-      parser_internal:
-        - appears to be an episode pack
-      content_size:
-        - rejecting
-      search_rss:
-        - Error
-      assume_quality:
-        - ""
-      utils.requests:
-        - Waiting
+#    log_filter:
+#      task:
+#        - marked seen
+#        - because quality already downloaded
+#        - because episode has already been downloaded
+#        - Task does not have any
+#      move:
+#        - left because it exceeds safety value
+#        - does not exists (anymore)
+#      urlrewriter:
+#        - URL rewritten to
+#      enzyme.mkv:
+#        - Reading
+#        - Processing
+#      enzyme.parsers.ebml.core:
+#        - ignored
+#        - Maximum level
+#      subliminal.video:
+#        - Scanning video
+#      parser_internal:
+#        - appears to be an episode pack
+#      content_size:
+#        - rejecting
+#      search_rss:
+#        - Error
+#      assume_quality:
+#        - ""
+#      utils.requests:
+#        - Waiting
 
 ##### Common torrents config#
   torrents:
@@ -367,9 +367,9 @@ tasks:
     #season lookup not supported by thetvdb
     thetvdb_lookup: no
     magnets: yes
-    convert_magnet:
-      timeout: 180 seconds
-      force: yes
+#    convert_magnet:
+#      timeout: 180 seconds
+#      force: yes
     discover:
       release_estimations: strict
       interval: 15 minutes
@@ -396,9 +396,9 @@ tasks:
       - transmission-series
       - series-metainfo
     magnets: yes
-    convert_magnet:
-      timeout: 180 seconds
-      force: yes
+#    convert_magnet:
+#      timeout: 180 seconds
+#      force: yes
     discover:
       release_estimations: strict
       interval: 15 minutes
@@ -483,9 +483,9 @@ tasks:
       - "/{? folder.root ?}{? folder.downmovies ?}"
       - "/{? folder.root ?}{? folder.movies ?}"
     magnets: yes
-    convert_magnet:
-      timeout: 180 seconds
-      force: yes
+#    convert_magnet:
+#      timeout: 180 seconds
+#      force: yes
     seen: local
     discover:
       release_estimations: loose
@@ -519,9 +519,9 @@ tasks:
       - "/{? folder.root ?}{? folder.downmovies ?}"
       - "/{? folder.root ?}{? folder.movies ?}"
     magnets: yes
-    convert_magnet:
-      timeout: 180 seconds
-      force: yes
+#    convert_magnet:
+#      timeout: 180 seconds
+#      force: yes
     seen: local
     discover:
       release_estimations: loose
@@ -555,9 +555,9 @@ tasks:
       - "/{? folder.root ?}{? folder.downmovies ?}"
       - "/{? folder.root ?}{? folder.movies ?}"
     magnets: yes
-    convert_magnet:
-      timeout: 180 seconds
-      force: yes
+#    convert_magnet:
+#      timeout: 180 seconds
+#      force: yes
     seen: local
     discover:
       release_estimations: loose

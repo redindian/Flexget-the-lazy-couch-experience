@@ -10,18 +10,18 @@ schedules:
     schedule:
       hour:  2
 ##### Twice a day between 2AM and 7AM: scan existing files, fill queue, check the feeds for latest episodes, discover missing episodes.
-  - tasks: ['purge-*', 'populate-*', 'fill-*', '*-manual', '*-rss', '*-discover']
-    schedule:
-      hour: '2-7/2'
+#  - tasks: ['purge-*', 'populate-*', 'fill-*', '*-manual', '*-rss', '*-discover']
+#    schedule:
+#      hour: '2-7/2'
 ##### Weekly cleanup of Transmission, Trakt TVshows list (fully watched && ended = delete from list) and harddrive.
-  - tasks: ['clean-*']
-    interval:
-      weeks: 1
+#  - tasks: ['clean-*']
+#    interval:
+#      weeks: 1
 
 
 templates:
 
-##### Series config# Please uncomment `tracking: backfill` if you need Flexget to download as much as old episodes as it can find. Do the same in series-discover-episodes and series-discover-seasons tasks
+##### Series config#
   series:
     thetvdb_lookup: yes
     tvmaze_lookup: yes
@@ -36,6 +36,7 @@ templates:
         propers: 48 hours
         specials: no
         season_packs: 3
+# Please uncomment `tracking: backfill` if you need Flexget to download as much as old episodes as it can find. Do the same in series-discover-episodes and series-discover-seasons tasks
 #        tracking: backfill
     content_size:
       min: 100
@@ -668,9 +669,9 @@ tasks:
           list: subtitles
           path: "{{location}}"
           remove_after: 7 days
-    exec:
-      on_exit:
-        phase: find "/{? folder.root ?}{? folder.downseries ?}"* -type d -empty -delete
+#    exec:
+#      on_exit:
+#        phase: find "/{? folder.root ?}{? folder.downseries ?}"* -type d -empty -delete
 
 
 
@@ -789,9 +790,9 @@ tasks:
           list: subtitles
           path: "{{location}}"
           remove_after: 7 days
-    exec:
-      on_exit:
-        phase: find "/{? folder.root ?}{? folder.downmovies ?}"* -type d -empty -delete
+#    exec:
+#      on_exit:
+#        phase: find "/{? folder.root ?}{? folder.downmovies ?}"* -type d -empty -delete
 
 
 ########## SUBTITLES (attempt 2/2) ##########
@@ -830,7 +831,7 @@ tasks:
     disable: details
     clean_transmission:
       <<: *transmission-settings
-      finished_for: 1 day
+      finished_for: 15 minute
 
 ##### Remove ended or canceled series that have been watched from trakt list#
   clean-series-list:
